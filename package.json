@@ -1,0 +1,34 @@
+{
+  "name": "uflsite",
+  "version": "1.0.0",
+  "description": "UFL Site",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "buildcss": "tailwindcss build -i public/css/edit.css -o public/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boopxyz/UFLSite.git"
+  },
+  "author": "Boop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boopxyz/UFLSite/issues"
+  },
+  "homepage": "https://github.com/boopxyz/UFLSite#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  }
+}
