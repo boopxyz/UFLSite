@@ -8,7 +8,7 @@ module.exports = function(passport) {
         new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
             userSchema.findOne({ userEmail: email}).then(user => {
                 if (!user) {
-                    return done(null, false, { message: "Invalid Email Provided" });
+                    return done(null, false, { type: "error", message: "Invalid Email Provided" });
                 }
 
                 bcrypt.compare(password, user.userPassword, (err, isMatch) => {
@@ -19,7 +19,7 @@ module.exports = function(passport) {
                     if (isMatch) {
                         return done(null, user);
                     } else {
-                        return done(null, false, { message: "Invalid Password Provided" })
+                        return done(null, false, { type: "error", message: "Invalid Password Provided" })
                     }
                 });
             }).catch(err => {return console.log(err)})

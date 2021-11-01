@@ -3,8 +3,10 @@ const router = express.Router();
 const userSchema = require("../models/User");
 const bcrypt = require("bcryptjs");
 const uniqid = require('uniqid'); 
+const passport = require("passport");
+const { forwardAuthenticated } = require("../config/authConfig");
 
-router.get("/", (req, res) => {
+router.get("/", forwardAuthenticated, (req, res) => {
     res.render("index");
 });
 
@@ -12,31 +14,31 @@ router.get("/whatisthis", (req, res) => {
     res.render("whatisthis");
 });
 
-router.get("/signup", (req, res) => {
+router.get("/signup", forwardAuthenticated, (req, res) => {
     res.render("signup");
 });
 
 router.post("/signup", async (req, res) => {
     const { username: plainUsername, password: plainPassword, email: plainEmail } = req.body;
-    let error
+    let errorA
     console.log("Signup Requested")
 
     if (!plainUsername || typeof plainUsername !== "string") {
-        error = "Invalid Username";
+        errorA = "Invalid Username";
         console.log("Signup Error")
-        return res.render("signup", { error, plainUsername, plainPassword, plainEmail })
+        return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
     if (!plainPassword || typeof plainPassword !== "string") {
-        error = "Invalid Password";
+        errorA = "Invalid Password";
         console.log("Signup Error")
-        return res.render("signup", { error, plainUsername, plainPassword, plainEmail })
+        return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
     if (plainPassword.length <= 5) {
-        error = "Password must be 6 or more characters";
+        errorA = "Password must be 6 or more characters";
         console.log("Signup Error")
-        return res.render("signup", { error, plainUsername, plainPassword, plainEmail })
+        return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
     const username = plainUsername.toLowerCase()
@@ -46,8 +48,8 @@ router.post("/signup", async (req, res) => {
 
     if (userSchema.find({ userEmail: email })) {
         console.log("Signup Error")
-        error = "Email is already in use";
-        return res.render("signup", { error, plainUsername, plainPassword, plainEmail })
+        errorA = "Email is already in use";
+        return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
     const newUser = new userSchema({
@@ -65,11 +67,25 @@ router.post("/signup", async (req, res) => {
     } catch(err) {
         if(err.code === 11000) {
             console.log("Signup Error")
-            error = "Username is already in use";
-            return res.render("signup", { error, plainUsername, plainPassword, plainEmail })
+            ererrorAror = "Username is already in use";
+            return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
         }
         throw error;
     }
 })
+
+router.post("/", (req, res, next) => {
+    passport.authenticate("local", {
+        successRedirect: "/dashboard",
+        failureRedirect: "/",
+        failureFlash: true
+    })(req, res, next);
+})
+
+router.get("/logout", (req, res) => {
+    req.logout();
+    req.flash("success_flash", "Logged Out Successfully");
+    res.redirect("/");
+}) 
 
 module.exports = router;
