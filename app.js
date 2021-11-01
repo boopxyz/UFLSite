@@ -34,7 +34,8 @@ app.use(express.urlencoded({ extended:false }));
 app.use(session({
     secret: "oflmsLogin",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    maxAge: 14 * 24 * 3600000
 }));
 app.use(flash());
 app.use(passport.initialize());
