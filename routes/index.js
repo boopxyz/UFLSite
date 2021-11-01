@@ -25,19 +25,19 @@ router.post("/signup", async (req, res) => {
 
     if (!plainUsername || typeof plainUsername !== "string") {
         errorA = "Invalid Username";
-        console.log("Signup Error")
+        console.log("Signup Error Username")
         return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
     if (!plainPassword || typeof plainPassword !== "string") {
         errorA = "Invalid Password";
-        console.log("Signup Error")
+        console.log("Signup Error Password")
         return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
     if (plainPassword.length <= 5) {
         errorA = "Password must be 6 or more characters";
-        console.log("Signup Error")
+        console.log("Signup Error Password Length")
         return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
 
@@ -46,8 +46,11 @@ router.post("/signup", async (req, res) => {
     const email = plainEmail;
     const userID = uniqid("ofl-");
 
-    if (userSchema.find({ userEmail: email })) {
-        console.log("Signup Error")
+    const checkUser = await userSchema.findOne({ userEmail: email })
+
+    if (checkUser) {
+        
+        console.log("Signup Error Email")
         errorA = "Email is already in use";
         return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
     }
@@ -66,8 +69,8 @@ router.post("/signup", async (req, res) => {
         res.redirect("/");
     } catch(err) {
         if(err.code === 11000) {
-            console.log("Signup Error")
-            ererrorAror = "Username is already in use";
+            console.log("Signup Error Username Used")
+            errorA = "Username is already in use";
             return res.render("signup", { errorA, plainUsername, plainPassword, plainEmail })
         }
         throw error;
