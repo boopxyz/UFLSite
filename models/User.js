@@ -6,7 +6,10 @@ const userSchema = new mongoose.Schema({
     userEmail: {type: String, required: true, unique: true},
     userPassword: {type: String, required: true},
     userCreationDate: { type: Date, required: false, default: Date.now},
-    userBadges: {type: Array, required: false, default: [{}]}
+    userBadges: {type: Array, required: false, default: [{}]},
+    userSpecials: {type: Array, required: false, default: [{
+        dev: false
+    }]}
 });
 
 module.exports = mongoose.model("User", userSchema, "users");
