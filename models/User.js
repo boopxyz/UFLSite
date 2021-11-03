@@ -9,7 +9,11 @@ const userSchema = new mongoose.Schema({
     userBadges: {type: Array, required: false, default: [{}]},
     userSpecials: {type: Array, required: false, default: [{
         dev: false
-    }]}
+    }]},
+    userInformation: {type: Array, required: false, default: [{
+        userTitle: "Player",
+    }]},
+    linkedAccounts: {type: Array, required: false, default: [{}]}
 });
 
 module.exports = mongoose.model("User", userSchema, "users");

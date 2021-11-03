@@ -1,0 +1,191 @@
+<%- include("partials/dashnavbar", { user: user }) %>
+
+<section class="py-8 mb-20">
+    <div class="container px-4 mx-auto">
+      <%- include("partials/warning") %>
+      <h1 class="mb-10 text-5xl font-bold font-heading" data-config-id="header">Settings</h1>
+      <div class="flex flex-wrap -m-4">
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500">Account Settings</p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold">Change Account Email</h3>
+                <p class="text-sm text-gray-500">Need to change your email? Do it here! Emails can only be changed once per month.</p>
+              </div>
+            </div>
+              <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                  <div>
+                    <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Can Change</span>
+                  </div>
+                  <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white opacity-50">Coming Soon</a>
+                </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500">Account Settings</p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold">Change Account Username</h3>
+                <p class="text-sm text-gray-500">Need a new username? Change your account username here. Usernames can only be changed once per week.</p>
+              </div>
+            </div>
+              <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                  <div>
+                    <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Can Change</span>
+                  </div>
+                  <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" onclick="popuphandler(true)" style="cursor: pointer;">Change Username</a>
+                </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500">Account Security</p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold">Change Account Password</h3>
+                <p class="text-sm text-gray-500">Having trouble with your password? Reset it here.</p>
+              </div>
+            </div>
+              <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                  <div>
+                    <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Can Change</span>
+                  </div>
+                  <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white">Change Password</a>
+                </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500">Account Security</p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold">Configure 2FA</h3>
+                <p class="text-sm text-gray-500">Want extra security? Enable 2fa to gain an extra sense of security by sending a code to your email for verification.</p>
+              </div>
+            </div>
+              <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                  <div>
+                    <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Can Enable</span>
+                  </div>
+                  <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white opacity-50">Coming Soon</a>
+                </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500">Account Integrations</p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold">Link Discord Account</h3>
+                <p class="text-sm text-gray-500">Link your Discord Account to your OFLMS Account to enable full integration.</p>
+              </div>
+            </div>
+            <% if(typeof user.linkedAccounts[0].discord != "undefined") { %>
+                <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                    <div>
+                      <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Linked <%= user.linkedAccounts[0].discord[0].discordUsername %>#<%= user.linkedAccounts[0].discord[0].discordDiscriminator %></span>
+                    </div>
+                    <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" href="/dashboard/auth/discord">Update Discord Account</a>
+                  </div>
+            <% } else { %>
+                <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                    <div>
+                      <span class="inline-block py-1 px-2 rounded-full bg-red-100 text-xs text-red-500">Not Linked</span>
+                    </div>
+                    <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" href="/dashboard/auth/discord">Link Discord Account</a>
+                  </div>
+            <% } %>
+          </div>
+        </div>
+        
+        <div class="w-full lg:w-1/3 p-4 h-full">
+            <div class="bg-white shadow rounded overflow-hidden">
+              <div class="pt-6 px-6 mb-8">
+                <div class="flex mb-8 justify-between items-center">
+                  <p class="text-sm text-gray-500">Account Integrations</p>
+                </div>
+                <div>
+                  <h3 class="mb-2 text-xl font-bold">Link Roblox Account</h3>
+                  <p class="text-sm text-gray-500">Link your Roblox Account to OFLMS in order to ensure teams can accept your requests and manage you as a player.</p>
+                </div>
+              </div>
+              <% if(typeof user.linkedAccounts[0].roblox != "undefined") { %>
+                <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                    <div>
+                      <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Linked</span>
+                    </div>
+                    <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white opacity-50" href="#">Update Roblox Account</a>
+                  </div>
+            <% } else { %>
+                <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                    <div>
+                      <span class="inline-block py-1 px-2 rounded-full bg-red-100 text-xs text-red-500">Not Linked</span>
+                    </div>
+                    <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white opacity-50">Coming Soon</a>
+                  </div>
+            <% } %>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-1/3 p-4 h-full">
+            <div class="bg-white shadow rounded overflow-hidden">
+              <div class="pt-6 px-6 mb-8">
+                <div class="flex mb-8 justify-between items-center">
+                  <p class="text-sm text-gray-500">Danger Zone</p>
+                </div>
+                <div>
+                  <h3 class="mb-2 text-xl font-bold">Request Account Deletion</h3>
+                  <p class="text-sm text-gray-500">Want your Account Deleted? Request an Account Deletion Here.</p>
+                </div>
+              </div>
+                <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                    <div>
+                      <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Can Initiate.</span>
+                    </div>
+                    <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white opacity-50">Coming Soon</a>
+                  </div>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-1/3 p-4 h-full">
+            <div class="bg-white shadow rounded overflow-hidden">
+              <div class="pt-6 px-6 mb-8">
+                <div class="flex mb-8 justify-between items-center">
+                  <p class="text-sm text-gray-500">Danger Zone</p>
+                </div>
+                <div>
+                  <h3 class="mb-2 text-xl font-bold">Recovery Mode</h3>
+                  <p class="text-sm text-gray-500">Suspect your account to be comprimised or think someone has your information? Enter recovery mode to disable all dangerous options (changing password, email, etc.) until you disable it. Can only be disabled by site administrators.</p>
+                </div>
+              </div>
+                <div class="p-6 flex items-center justify-between bg-lightGray-50">
+                    <div>
+                      <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500">Can Enable</span>
+                    </div>
+                    <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white opacity-50">Coming Soon</a>
+                  </div>
+            </div>
+          </div>
+
+      <%- include("partials/changeUsername") %>
+      </div>
+    </div>
+  </section>
+
+<%- include("partials/footer") %>

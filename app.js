@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require('connect-flash');
 const session = require('express-session');
+const Store = require("connect-mongo");
 
 // Init Express
 
@@ -35,7 +36,12 @@ app.use(session({
     secret: "oflmsLogin",
     resave: true,
     saveUninitialized: true,
-    maxAge: 14 * 24 * 3600000
+    cookie: {
+        maxAge: 60000 * 60 * 72
+    },
+    store: Store.create({
+        mongoUrl: process.env.DATABASE_URL
+    })
 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -51,6 +57,10 @@ app.use((req, res, next) => {
 
 app.use("/", require("./routes/index"));
 app.use("/dashboard", require("./routes/dashboard"));
+app.use(function(req, res, next) {
+    res.redirect("/404");
+});
+
 
 // Error Router
 
