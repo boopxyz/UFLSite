@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     userCreationDate: { type: Date, required: false, default: Date.now},
     userBadges: {type: Array, required: false, default: [{}]},
     userSpecials: {type: Array, required: false, default: [{
-        dev: false
+        dev: false,
+        permissions: "0"
     }]},
     userInformation: {type: Array, required: false, default: [{
         userTitle: "Player",

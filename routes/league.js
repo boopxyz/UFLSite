@@ -1,12 +1,13 @@
 const express = require("express")
 const router = express.Router();
 const { ensureAuth } = require("../config/authConfig");
-const userSchema = require("../models/User");
-const passport = require("passport");
-const bcrypt = require("bcryptjs");
 
 router.get("/", ensureAuth, (req, res) => {
-    res.render("dashhome", { user: req.user });
+    res.render("leaguehomepage", { user: req.user });
+});
+
+router.get("/manage", ensureAuth, (req, res) => {
+    res.render("manageleague", { user: req.user });
 });
 
 module.exports = router;

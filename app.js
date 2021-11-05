@@ -57,6 +57,11 @@ app.use((req, res, next) => {
 
 app.use("/", require("./routes/index"));
 app.use("/dashboard", require("./routes/dashboard"));
+app.use("/dashboard/user", require("./routes/user"));
+app.use("/dashboard/settings", require("./routes/settings"));
+app.use("/dashboard/auth", require("./routes/auth"));
+app.use("/dashboard/league", require("./routes/league"));
+app.use("/dashboard/developer", require("./routes/developer"));
 app.use(function(req, res, next) {
     res.redirect("/404");
 });
