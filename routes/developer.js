@@ -7,7 +7,7 @@ router.get("/", ensureAuth, ensureAdmin, (req, res) => {
   res.render("developerpanel", { user: req.user });
 });
 
-router.get("/manage-users", ensureAuth, ensureAdmin, async (req, res) => {
+router.get("/users", ensureAuth, ensureAdmin, async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 25;
   //console.log(`${page} - ${limit}`);
@@ -24,7 +24,7 @@ router.get("/manage-users", ensureAuth, ensureAdmin, async (req, res) => {
   res.render("developermanageusers", { user: req.user, users: allUsers });
 });
 
-router.get("/manage-users/:id", ensureAuth, async (req, res) => {
+router.get("/users/manage/:id", ensureAuth, async (req, res) => {
   try {
     const id = req.params.id.substring(1);
     const foundUser = await userSchema.findOne({ userID: id });

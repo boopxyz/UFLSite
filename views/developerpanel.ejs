@@ -1,99 +1,231 @@
 <%- include("partials/dashnavbar", { user: user }) %>
 
 <div class="mx-auto lg:ml-80">
-
-<section class="py-8">
+  <section class="py-8">
     <div class="container px-4 mx-auto">
       <div class="flex flex-wrap -m-4">
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500" data-config-id="card-title1">
+                  OFLMS Users
+                </p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">
+                  Manage Users
+                </h3>
+                <p class="text-sm text-gray-500" data-config-id="c-desc1">
+                  Manage all users of the OFLMS.
+                </p>
+              </div>
+            </div>
+            <div class="p-6 flex items-center justify-between bg-lightGray-50">
+              <div>
+                <p
+                  class="mb-2 text-xs text-gray-500 font-medium"
+                  data-config-id="card-note1"
+                >
+                  Permissions
+                </p>
+                <span
+                  class="
+                    inline-block
+                    py-1
+                    px-2
+                    rounded-full
+                    bg-green-100
+                    text-xs text-green-500
+                  "
+                  data-config-id="card-value1"
+                  >Can Do</span
+                >
+              </div>
+              <a
+                class="
+                  py-2
+                  px-3
+                  bg-indigo-500
+                  hover:bg-indigo-600
+                  rounded
+                  text-xs text-white
+                "
+                href="/dashboard/developer/users"
+                data-config-id="c-primary-action1"
+                >Manage Users</a
+              >
+            </div>
+          </div>
+        </div>
 
         <div class="w-full lg:w-1/3 p-4 h-full">
-            <div class="bg-white shadow rounded overflow-hidden">
-              <div class="pt-6 px-6 mb-8">
-                <div class="flex mb-8 justify-between items-center">
-                  <p class="text-sm text-gray-500" data-config-id="card-title1">OFLMS Users</p>
-                </div>
-                <div>
-                  <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">Manage Users</h3>
-                  <p class="text-sm text-gray-500" data-config-id="c-desc1">Manage all users of the OFLMS.</p>
-                </div>
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500" data-config-id="card-title1">
+                  OFLMS Teams
+                </p>
               </div>
-              <div class="p-6 flex items-center justify-between bg-lightGray-50">
-                <div>
-                  <p class="mb-2 text-xs text-gray-500 font-medium" data-config-id="card-note1">Permissions</p>
-                  <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500" data-config-id="card-value1">Can Do</span>
-                </div>
-                <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" href="/dashboard/developer/manage-users" data-config-id="c-primary-action1">Manage Users</a>
+              <div>
+                <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">
+                  Manage Teams
+                </h3>
+                <p class="text-sm text-gray-500" data-config-id="c-desc1">
+                  Manage all teams of the OFLMS.
+                </p>
               </div>
             </div>
+            <div class="p-6 flex items-center justify-between bg-lightGray-50">
+              <div>
+                <p
+                  class="mb-2 text-xs text-gray-500 font-medium"
+                  data-config-id="card-note1"
+                >
+                  Permissions
+                </p>
+                <span
+                  class="
+                    inline-block
+                    py-1
+                    px-2
+                    rounded-full
+                    bg-green-100
+                    text-xs text-green-500
+                  "
+                  data-config-id="card-value1"
+                  >Can Do</span
+                >
+              </div>
+              <a
+                class="
+                  py-2
+                  px-3
+                  bg-indigo-500
+                  hover:bg-indigo-600
+                  rounded
+                  text-xs text-white
+                "
+                href="/dashboard/developer/manage-teams"
+                data-config-id="c-primary-action1"
+                >Manage Teams</a
+              >
+            </div>
           </div>
+        </div>
 
-      <div class="w-full lg:w-1/3 p-4 h-full">
-        <div class="bg-white shadow rounded overflow-hidden">
-          <div class="pt-6 px-6 mb-8">
-            <div class="flex mb-8 justify-between items-center">
-              <p class="text-sm text-gray-500" data-config-id="card-title1">OFLMS Teams</p>
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500" data-config-id="card-title1">
+                  OFLMS League
+                </p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">
+                  Manage League
+                </h3>
+                <p class="text-sm text-gray-500" data-config-id="c-desc1">
+                  Manage league settings for OFLMS.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">Manage Teams</h3>
-              <p class="text-sm text-gray-500" data-config-id="c-desc1">Manage all teams of the OFLMS.</p>
+            <div class="p-6 flex items-center justify-between bg-lightGray-50">
+              <div>
+                <p
+                  class="mb-2 text-xs text-gray-500 font-medium"
+                  data-config-id="card-note1"
+                >
+                  Permissions
+                </p>
+                <span
+                  class="
+                    inline-block
+                    py-1
+                    px-2
+                    rounded-full
+                    bg-green-100
+                    text-xs text-green-500
+                  "
+                  data-config-id="card-value1"
+                  >Can Do</span
+                >
+              </div>
+              <a
+                class="
+                  py-2
+                  px-3
+                  bg-indigo-500
+                  hover:bg-indigo-600
+                  rounded
+                  text-xs text-white
+                "
+                href="/dashboard/developer/manage-league"
+                data-config-id="c-primary-action1"
+                >Manage League Settings</a
+              >
             </div>
           </div>
-          <div class="p-6 flex items-center justify-between bg-lightGray-50">
-            <div>
-              <p class="mb-2 text-xs text-gray-500 font-medium" data-config-id="card-note1">Permissions</p>
-              <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500" data-config-id="card-value1">Can Do</span>
+        </div>
+
+        <div class="w-full lg:w-1/3 p-4 h-full">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-8">
+              <div class="flex mb-8 justify-between items-center">
+                <p class="text-sm text-gray-500" data-config-id="card-title1">
+                  OFLMS Settings
+                </p>
+              </div>
+              <div>
+                <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">
+                  Change OFLMS Settings
+                </h3>
+                <p class="text-sm text-gray-500" data-config-id="c-desc1">
+                  Change settings of the OFLMS.
+                </p>
+              </div>
             </div>
-            <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" href="/dashboard/developer/manage-teams" data-config-id="c-primary-action1">Manage Teams</a>
+            <div class="p-6 flex items-center justify-between bg-lightGray-50">
+              <div>
+                <p
+                  class="mb-2 text-xs text-gray-500 font-medium"
+                  data-config-id="card-note1"
+                >
+                  Permissions
+                </p>
+                <span
+                  class="
+                    inline-block
+                    py-1
+                    px-2
+                    rounded-full
+                    bg-green-100
+                    text-xs text-green-500
+                  "
+                  data-config-id="card-value1"
+                  >Can Do</span
+                >
+              </div>
+              <a
+                class="
+                  py-2
+                  px-3
+                  bg-indigo-500
+                  hover:bg-indigo-600
+                  rounded
+                  text-xs text-white
+                "
+                href="/dashboard/developer/manage-settings"
+                data-config-id="c-primary-action1"
+                >Manage OFLMS Settings</a
+              >
+            </div>
           </div>
         </div>
       </div>
-
-     <div class="w-full lg:w-1/3 p-4 h-full">
-        <div class="bg-white shadow rounded overflow-hidden">
-          <div class="pt-6 px-6 mb-8">
-            <div class="flex mb-8 justify-between items-center">
-              <p class="text-sm text-gray-500" data-config-id="card-title1">OFLMS League</p>
-            </div>
-            <div>
-              <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">Manage League</h3>
-              <p class="text-sm text-gray-500" data-config-id="c-desc1">Manage league settings for OFLMS.</p>
-            </div>
-          </div>
-          <div class="p-6 flex items-center justify-between bg-lightGray-50">
-            <div>
-              <p class="mb-2 text-xs text-gray-500 font-medium" data-config-id="card-note1">Permissions</p>
-              <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500" data-config-id="card-value1">Can Do</span>
-            </div>
-            <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" href="/dashboard/developer/manage-league" data-config-id="c-primary-action1">Manage League Settings</a>
-          </div>
-        </div>
-      </div>
-
-  <div class="w-full lg:w-1/3 p-4 h-full">
-    <div class="bg-white shadow rounded overflow-hidden">
-      <div class="pt-6 px-6 mb-8">
-        <div class="flex mb-8 justify-between items-center">
-          <p class="text-sm text-gray-500" data-config-id="card-title1">OFLMS Settings</p>
-        </div>
-        <div>
-          <h3 class="mb-2 text-xl font-bold" data-config-id="c-header1">Change OFLMS Settings</h3>
-          <p class="text-sm text-gray-500" data-config-id="c-desc1">Change settings of the OFLMS.</p>
-        </div>
-      </div>
-      <div class="p-6 flex items-center justify-between bg-lightGray-50">
-        <div>
-          <p class="mb-2 text-xs text-gray-500 font-medium" data-config-id="card-note1">Permissions</p>
-          <span class="inline-block py-1 px-2 rounded-full bg-green-100 text-xs text-green-500" data-config-id="card-value1">Can Do</span>
-        </div>
-        <a class="py-2 px-3 bg-indigo-500 hover:bg-indigo-600 rounded text-xs text-white" href="/dashboard/developer/manage-settings" data-config-id="c-primary-action1">Manage OFLMS Settings</a>
-      </div>
-    </div>
-  </div>
-
-</div>
     </div>
   </section>
-
 </div>
 
 <%- include("partials/footer") %>

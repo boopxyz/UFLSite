@@ -1,5 +1,476 @@
 <%- include("partials/dashnavbar", { user: user }) %>
 
-<div class="mx-auto lg:ml-80"></div>
+<div class="mx-auto lg:ml-80">
+  <section class="py-8">
+    <div class="container px-4 mx-auto">
+      <div class="p-6 bg-white shadow rounded">
+        <div class="flex justify-between mb-4">
+          <div class="flex items-center">
+            <img
+              class="w-20 h-20 p-1 mr-4 rounded-full border border-indigo-50"
+              src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              data-config-id="profile1"
+            />
+            <div>
+              <div class="flex mb-2">
+                <h3 class="font-medium" data-config-id="name1">
+                  <%= pUser.userUsername %>
+                </h3>
+              </div>
+              <% if(pUser.userSpecials[0].dev) { %>
+              <span
+                class="
+                  inline-block
+                  py-1
+                  px-2
+                  mr-2
+                  text-xs
+                  bg-red-50
+                  text-red-400
+                  rounded
+                "
+                data-config-id="label1"
+                >Developer</span
+              >
+              <% } %>
+            </div>
+          </div>
+          <button class="self-start mt-6 focus:outline-none">
+            <svg
+              class="h-3 w-3 text-gray-200"
+              viewbox="0 0 12 4"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              data-config-id="auto-svg-1-5"
+            >
+              <path
+                d="M6 0.666687C5.26667 0.666687 4.66667 1.26669 4.66667 2.00002C4.66667 2.73335 5.26667 3.33335 6 3.33335C6.73333 3.33335 7.33333 2.73335 7.33333 2.00002C7.33333 1.26669 6.73333 0.666687 6 0.666687ZM1.33333 0.666687C0.6 0.666687 0 1.26669 0 2.00002C0 2.73335 0.6 3.33335 1.33333 3.33335C2.06667 3.33335 2.66667 2.73335 2.66667 2.00002C2.66667 1.26669 2.06667 0.666687 1.33333 0.666687ZM10.6667 0.666687C9.93333 0.666687 9.33333 1.26669 9.33333 2.00002C9.33333 2.73335 9.93333 3.33335 10.6667 3.33335C11.4 3.33335 12 2.73335 12 2.00002C12 1.26669 11.4 0.666687 10.6667 0.666687Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="mb-7">
+          <p class="text-sm" data-config-id="desc1">Bio Goes Here</p>
+        </div>
+        <div class="flex mb-4 justify-between items-center">
+          <div class="flex items-center">
+            <span class="inline-block mr-2">
+              <svg
+                class="text-gray-400 opacity-60"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7ZM14 7C14 8.10457 13.1046 9 12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M16 15C16 14.4477 15.5523 14 15 14H9C8.44772 14 8 14.4477 8 15V21H6V15C6 13.3431 7.34315 12 9 12H15C16.6569 12 18 13.3431 18 15V21H16V15Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <h4 class="text-sm text-gray-500" data-config-id="label1-1">
+              User ID
+            </h4>
+          </div>
+          <span class="text-sm" data-config-id="value1-1"
+            ><%= pUser.userID %></span
+          >
+        </div>
+        <div class="flex mb-4 justify-between items-center">
+          <div class="flex items-center">
+            <span class="inline-block mr-2">
+              <svg
+                class="text-gray-400 opacity-60"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <h4 class="text-sm text-gray-500" data-config-id="label1-2">
+              Email Address
+            </h4>
+          </div>
+          <span class="text-sm" data-config-id="value1-2"
+            ><%= pUser.userEmail %></span
+          >
+        </div>
+        <div class="flex mb-6 justify-between items-center">
+          <div class="flex items-center">
+            <span class="inline-block mr-2">
+              <svg
+                class="text-gray-400 opacity-60"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M19 7H17C17 4.79086 15.2091 3 13 3C10.7909 3 9 4.79086 9 7V10H18C19.6569 10 21 11.3431 21 13V19C21 20.6569 19.6569 22 18 22H6C4.34315 22 3 20.6569 3 19V13C3 11.3431 4.34315 10 6 10H7V7C7 3.68629 9.68629 1 13 1C16.3137 1 19 3.68629 19 7ZM18 12H6C5.44772 12 5 12.4477 5 13V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19V13C19 12.4477 18.5523 12 18 12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <h4 class="text-sm text-gray-500" data-config-id="label1-3">
+              Permission Level
+            </h4>
+          </div>
+          <span class="text-sm" data-config-id="value1-3"
+            >Level <%= pUser.userSpecials[0].permissions %></span
+          >
+        </div>
+        <div class="flex flex-wrap -mx-2">
+          <div class="w-full md:w-1/2 px-2 mb-2 md:mb-0">
+            <a
+              class="
+                flex
+                justify-center
+                py-2
+                text-sm text-white
+                bg-red-500
+                hover:bg-red-600 hover:text-red-200
+                rounded
+                transition
+                ease-in-out
+                duration-200
+              "
+              href="#"
+            >
+              <svg
+                class="mr-2"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17 5V4C17 2.89543 16.1046 2 15 2H9C7.89543 2 7 2.89543 7 4V5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H5V18C5 19.6569 6.34315 21 8 21H16C17.6569 21 19 19.6569 19 18V7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H17ZM15 4H9V5H15V4ZM17 7H7V18C7 18.5523 7.44772 19 8 19H16C16.5523 19 17 18.5523 17 18V7Z"
+                  fill="currentColor"
+                />
+                <path d="M9 9H11V17H9V9Z" fill="currentColor" />
+                <path d="M13 9H15V17H13V9Z" fill="currentColor" />
+              </svg>
+              <span data-config-id="primary-action1">Delete User</span>
+            </a>
+          </div>
+          <div class="w-full md:w-1/2 px-2">
+            <a
+              class="
+                flex
+                justify-center
+                py-2
+                text-sm text-indigo-500
+                bg-indigo-100
+                hover:bg-indigo-200
+                rounded
+                transition
+                duration-200
+              "
+              href="/dashboard/user/:<%= pUser.userID %>"
+              target="_blank"
+            >
+              <svg
+                class="mr-2"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7ZM14 7C14 8.10457 13.1046 9 12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M16 15C16 14.4477 15.5523 14 15 14H9C8.44772 14 8 14.4477 8 15V21H6V15C6 13.3431 7.34315 12 9 12H15C16.6569 12 18 13.3431 18 15V21H16V15Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span data-config-id="secondary-action1">View Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8">
+    <div class="container px-4 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="w-full lg:w-1/3 p-4">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-10 flex justify-between items-center">
+              <span
+                class="
+                  inline-flex
+                  items-center
+                  justify-center
+                  w-9
+                  h-10
+                  bg-gray-50
+                  rounded
+                "
+              >
+                <img
+                  width="48"
+                  height="48"
+                  src="/img/discord_black.svg"
+                  alt=""
+                  data-config-id="logo1"
+                />
+              </span>
+              <% if (typeof pUser.linkedAccounts[0].discord != "undefined") { %>
+              <a
+                class="
+                  py-1
+                  px-2
+                  bg-green-100
+                  text-xs text-green-500
+                  rounded-full
+                "
+                data-config-id="label1"
+                >Linked</a
+              >
+              <% } else { %>
+              <a
+                class="py-1 px-2 bg-red-100 text-xs text-red-500 rounded-full"
+                href="#"
+                data-config-id="label1"
+                >Not Linked</a
+              >
+              <% } %>
+            </div>
+            <div class="px-6 mb-6">
+              <h4 class="text-xl font-bold" data-config-id="header1">
+                Discord
+              </h4>
+              <p class="text-xs text-gray-500" data-config-id="desc1">
+                Linked Discord Account Information
+              </p>
+            </div>
+            <% if (typeof pUser.linkedAccounts[0].discord != "undefined") { %>
+            <div class="p-6 bg-lightGray-50">
+              <div class="flex -mx-2 mb-6">
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-1">
+                    Full Username
+                  </p>
+                  <span
+                    class="
+                      inline-block
+                      py-1
+                      px-2
+                      bg-gray-200
+                      rounded-full
+                      text-xs
+                    "
+                    data-config-id="label-val1-1"
+                    ><%= pUser.linkedAccounts[0].discord[0].discordUsername
+                    %>#<%=
+                    pUser.linkedAccounts[0].discord[0].discordDiscriminator
+                    %></span
+                  >
+                </div>
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-2">
+                    Email
+                  </p>
+                  <span
+                    class="
+                      inline-block
+                      py-1
+                      px-2
+                      bg-gray-200
+                      rounded-full
+                      text-xs
+                    "
+                    data-config-id="label-val1-2"
+                    ><%= pUser.linkedAccounts[0].discord[0].discordEmail
+                    %></span
+                  >
+                </div>
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-2">
+                    Discord ID
+                  </p>
+                  <span
+                    class="
+                      inline-block
+                      py-1
+                      px-2
+                      bg-gray-200
+                      rounded-full
+                      text-xs
+                    "
+                    data-config-id="label-val1-2"
+                    ><%= pUser.linkedAccounts[0].discord[0].discordID %></span
+                  >
+                </div>
+              </div>
+            </div>
+            <% } else { %>
+            <div class="p-6 bg-lightGray-50">
+              <div class="flex -mx-2 mb-6">
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-1">
+                    Discord Account Not Linked
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/3 p-4">
+          <div class="bg-white shadow rounded overflow-hidden">
+            <div class="pt-6 px-6 mb-10 flex justify-between items-center">
+              <span
+                class="
+                  inline-flex
+                  items-center
+                  justify-center
+                  w-9
+                  h-10
+                  bg-gray-50
+                  rounded
+                "
+              >
+                <img
+                  width="48"
+                  height="48"
+                  src="/img/roblox_red.svg"
+                  alt=""
+                  data-config-id="logo1"
+                />
+              </span>
+              <% if (typeof pUser.linkedAccounts[0].roblox != "undefined") { %>
+              <a
+                class="
+                  py-1
+                  px-2
+                  bg-green-100
+                  text-xs text-green-500
+                  rounded-full
+                "
+                data-config-id="label1"
+                >Linked</a
+              >
+              <% } else { %>
+              <a
+                class="py-1 px-2 bg-red-100 text-xs text-red-500 rounded-full"
+                href="#"
+                data-config-id="label1"
+                >Not Linked</a
+              >
+              <% } %>
+            </div>
+            <div class="px-6 mb-6">
+              <h4 class="text-xl font-bold" data-config-id="header1">Roblox</h4>
+              <p class="text-xs text-gray-500" data-config-id="desc1">
+                Linked Roblox Account Information
+              </p>
+            </div>
+            <% if (typeof pUser.linkedAccounts[0].roblox != "undefined") { %>
+            <div class="p-6 bg-lightGray-50">
+              <div class="flex -mx-2 mb-6">
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-1">
+                    Full Username
+                  </p>
+                  <span
+                    class="
+                      inline-block
+                      py-1
+                      px-2
+                      bg-gray-200
+                      rounded-full
+                      text-xs
+                    "
+                    data-config-id="label-val1-1"
+                    ><%= pUser.linkedAccounts[0].discord[0].discordUsername
+                    %>#<%=
+                    pUser.linkedAccounts[0].discord[0].discordDiscriminator
+                    %></span
+                  >
+                </div>
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-2">
+                    Email
+                  </p>
+                  <span
+                    class="
+                      inline-block
+                      py-1
+                      px-2
+                      bg-gray-200
+                      rounded-full
+                      text-xs
+                    "
+                    data-config-id="label-val1-2"
+                    ><%= pUser.linkedAccounts[0].discord[0].discordEmail
+                    %></span
+                  >
+                </div>
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-2">
+                    Discord ID
+                  </p>
+                  <span
+                    class="
+                      inline-block
+                      py-1
+                      px-2
+                      bg-gray-200
+                      rounded-full
+                      text-xs
+                    "
+                    data-config-id="label-val1-2"
+                    ><%= pUser.linkedAccounts[0].discord[0].discordID %></span
+                  >
+                </div>
+              </div>
+            </div>
+            <% } else { %>
+            <div class="p-6 bg-lightGray-50">
+              <div class="flex -mx-2 mb-6">
+                <div class="w-1/2 px-2">
+                  <p class="mb-2 text-xs font-medium" data-config-id="label1-1">
+                    Roblox Account Not Linked
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <%- include("partials/footer") %>
