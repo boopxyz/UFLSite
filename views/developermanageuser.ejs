@@ -154,7 +154,8 @@
                 ease-in-out
                 duration-200
               "
-              href="#"
+              onclick="popuphandler(true)"
+              style="cursor: pointer"
             >
               <svg
                 class="mr-2"
@@ -471,6 +472,8 @@
       </div>
     </div>
   </section>
+
+  <%- include("partials/deleteUserConfirmation", { dUser: pUser }) %>
 </div>
 
 <%- include("partials/footer") %>
